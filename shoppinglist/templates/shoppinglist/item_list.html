@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %} 個別リスト {% endblock %}
+
+{% block main %}
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>名前</th>
+      <th>個数</th>
+      <th>期日</th>
+      <th>済み?</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for item in object_list %}
+    <tr>
+      <td scope="row">{{ item.id }}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.count }}</td>
+      <td>{{ item.buy_date }}</td>
+      <td>{% if item.buy == False %} <font color='red'>Not yet</font> {% endif %}
+          {% if item.buy == True %} Yet {% endif %}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
