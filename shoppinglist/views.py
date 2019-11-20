@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.shortcuts import get_object_or_404
 from .forms import ItemBuy
+from django.views.generic.edit import CreateView
 
 class ItemList(ListView):
     model = Item
@@ -20,3 +21,9 @@ class ItemList(ListView):
         context = super().get_context_data(**kwargs)
         context['form'] = ItemBuy()
         return context
+
+class ItemAddView(CreateView):
+    model = Item
+    fields = ('name', 'item_url', 'count', 'buy_date', 'shop')
+    template_name = 'shoppinglist/item_add.html'
+    success_url = 'list/'
