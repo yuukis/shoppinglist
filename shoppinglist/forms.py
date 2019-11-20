@@ -1,4 +1,5 @@
 from django import forms
+from .models import Item
 
 class ItemBuy(forms.Form):
     status = (
@@ -10,3 +11,8 @@ class ItemBuy(forms.Form):
 
 class ItemIdForm(forms.Form):
     item_id = forms.IntegerField(label='ID')
+
+class ItemForm(forms.ModelForm):
+    class Meta:
+        model = Item
+        fields = ['name', 'item_url', 'count', 'buy_date', 'shop']
