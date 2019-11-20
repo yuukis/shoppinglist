@@ -31,4 +31,10 @@
   {% endfor %}
   </tbody>
 </table>
+<ul>
+<li><a href="{% url 'add' %}">追加</a></li>
+<li><a href="{% url 'show' %}">表示</a></li>
+<li><a href="{% url 'edit' %}">変更</a></li>
+<li><a href="{% url 'delete' %}">削除</a></li>
+</ul>
 {% endblock %}
