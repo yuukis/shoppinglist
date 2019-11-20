@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %} 個別リスト {% endblock %}
+
+{% block main %}
+<form action="{% url 'show' %}" method="post">
+{% csrf_token %}
+{{ form_id }}
+<input type="submit"/>
+</form>
+
+{% if item %}
+<dl>
+<dt>名前</dt><dd>{{ item.name }}</dd>
+<dt>個数</dt><dd>{{ item.count }}</dd>
+<dt>期日</dt><dd>{{ item.buy_date }}</dd>
+<dt>済み？</dt><dd>{{ item.buy }}</dd>
+<dt>店</dt><dd>{{ item.shop }}</dd>
+</dl>
+{% endif %}
+
+<ul>
+<li><a href="{% url 'list' %}">一覧へ戻る</a></li>
+</ul>
+{% endblock %}
