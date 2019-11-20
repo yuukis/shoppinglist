@@ -3,7 +3,8 @@ from .models import Item
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.shortcuts import get_object_or_404
-from .forms import ItemBuy
+from .forms import ItemBuy, ItemIdForm
+from django.views.generic.base import TemplateView
 
 class ItemList(ListView):
     model = Item
@@ -19,4 +20,13 @@ class ItemList(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['form'] = ItemBuy()
+        return context
+
+class ItemDeleteView(TemplateView):
+    model = Item
+    template_name = 'shoppinglist/item_delete.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = ItemIdForm()
         return context
