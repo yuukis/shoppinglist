@@ -5,7 +5,9 @@
 {% block main %}
 <form action="{% url 'add' %}" method="post">
 {% csrf_token %}
-{{ form }}
+<table>
+{{ form.as_table }}
+</table>
 <input type="submit"/>
 </form>
 {% endblock %}
