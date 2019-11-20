@@ -7,3 +7,6 @@ class ItemBuy(forms.Form):
             )
     item_id = forms.IntegerField(label='ID')
     item_status = forms.ChoiceField(label='STATUS',widget=forms.Select, choices=status)
+
+class ItemIdForm(forms.Form):
+    item_id = forms.IntegerField(label='ID')
