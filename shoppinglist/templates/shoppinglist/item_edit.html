@@ -3,7 +3,7 @@
 {% block title %} Edit {% endblock %}
 
 {% block main %}
-<form action="{% url 'edit' %}" method="post">
+<form action="{% url 'shoppinglist:edit' %}" method="post">
 {% csrf_token %}
 <table>
 {{ form_id.as_table }}
