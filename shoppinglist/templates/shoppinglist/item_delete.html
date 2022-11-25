@@ -3,7 +3,7 @@
 {% block title %} Delete {% endblock %}
 
 {% block main %}
-<form action="{% url 'delete' %}" method="post">
+<form action="{% url 'shoppinglist:delete' %}" method="post">
 {% csrf_token %}
 {{ form }}
 <input type="submit"/>

@@ -3,7 +3,7 @@
 {% block title %} 個別リスト {% endblock %}
 
 {% block main %}
-<form action="{% url 'show' %}" method="post">
+<form action="{% url 'shoppinglist:show' %}" method="post">
 {% csrf_token %}
 {{ form_id }}
 <input type="submit"/>
@@ -20,6 +20,6 @@
 {% endif %}
 
 <ul>
-<li><a href="{% url 'list' %}">一覧へ戻る</a></li>
+<li><a href="{% url 'shoppinglist:list' %}">一覧へ戻る</a></li>
 </ul>
 {% endblock %}
